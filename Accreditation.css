@@ -1,0 +1,978 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+
+body {
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    background: #f2f2f2;
+    color: rgba(0, 0, 0, .87);
+    font-family: 'Roboto', sans-serif;
+}
+
+.accordion {
+    margin: auto;
+    width: 100%;
+}
+
+.accordion input {
+    display: none;
+}
+
+.box {
+
+    position: relative;
+    background: white;
+    height: 64px;
+    transition: all .15s ease-in-out;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+header.box {
+    background: #000000;
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, .12), 0 2px 4px -4px rgba(0, 0, 0, .24);
+}
+
+
+header .box-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20pt;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: default;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box-title {
+    width: calc(100% - 40px);
+    overflow: hidden;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 20px;
+    font-size: 13pt;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media screen and (max-width:585px) {
+
+
+    .box-title {
+        width: 100%;
+        /* overflow: scroll;*/
+        font-size: 1.5rem;
+        height: 64px;
+        line-height: 69px;
+        padding: 0 20px;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+}
+
+.box-content {
+    width: calc(95% - 40px);
+    padding: 30px 20px;
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.995);
+    display: none;
+}
+
+.box-close {
+    position: absolute;
+    height: 64px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+}
+
+input:checked+.box {
+    height: auto;
+    margin: 16px 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .16), 0 6px 12px rgba(0, 0, 0, .32);
+}
+
+input:checked+.box .box-title {
+    border-bottom: 1px solid rgba(0, 0, 0, .18);
+}
+
+input:checked+.box .box-content,
+input:checked+.box .box-close {
+    display: inline-block;
+}
+
+.arrows section .box-title {
+    padding-left: 44px;
+    width: calc(100% - 64px);
+}
+
+.arrows section .box-title:before {
+    position: absolute;
+    display: block;
+    content: '\203a';
+    font-size: 20pt;
+    left: 20px;
+    top: -2px;
+    transition: transform .15s ease-in-out;
+    color: rgba(0, 0, 0, .54);
+    color: rgba(228, 89, 2, 0.908);
+}
+
+input:checked+section.box .box-title:before {
+    transform: rotate(90deg);
+}
+
+/**************************************************************************************/
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i';
+
+ol.gradient-list>li,
+ol.gradient-list>li::before {
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+ol.gradient-list {
+    counter-reset: gradient-counter;
+    list-style: none;
+    padding-left: 1rem;
+    margin-top: -20px;
+}
+
+ol.gradient-list>li {
+    background: rgba(225, 224, 224, 0.474);
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    counter-increment: gradient-counter;
+    margin-top: 0.9rem;
+    height: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+}
+
+ol.gradient-list>li::before,
+ol.gradient-list>li::after {
+    background: linear-gradient(135deg, #ff8d23 0%, #fae3c8 100%);
+    border-radius: 1rem 1rem 0 1rem;
+    content: '';
+    height: 2rem;
+    left: -1rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0rem;
+    width: 2rem;
+    box-sizing: border-box;
+}
+
+ol.gradient-list>li::before {
+    align-items: flex-end;
+    content: counter(gradient-counter);
+    color: #1d1f20;
+    display: flex;
+    font: 900 1.5em/1 'Montserrat';
+    justify-content: center;
+    padding: 0.125em 0.25em;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:795px) {
+
+    ol.gradient-list>li {
+        height: 7rem;
+    }
+
+}
+
+@media screen and (max-width:470px) {
+
+    ol.gradient-list>li {
+        height: 10.5rem;
+
+    }
+
+}
+
+@media screen and (max-width:385px) {
+
+    ol.gradient-list>li {
+        height: 12.5rem;
+
+    }
+}
+
+@media screen and (max-width:339px) {
+    ol.gl2>li {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    ol.gl3>li {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+}
+
+/* @media screen and (max-width:355px) {
+
+    ol.gradient-list>li {
+        height: 10.8rem;
+
+    }
+
+} */
+
+@media screen and (max-width:317px) {
+
+    ol.gradient-list>li {
+        height: 150px;
+
+    }
+
+}
+
+@media screen and (max-width:304px) {
+
+    ol.gradient-list>li {
+        height: 250px;
+    }
+
+}
+
+/*************************************************************************/
+ol.gl2>li::before,
+ol.gl2>li::after {
+    background: linear-gradient(135deg, #ff2a239e 0%, #fae3c8 100%);
+    border-radius: 1rem 1rem 0 1rem;
+    content: '';
+    height: 2rem;
+    left: -1rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0rem;
+    width: 2rem;
+    box-sizing: border-box;
+
+}
+
+
+ol.gl2>li::before {
+    align-items: flex-end;
+    content: counter(gradient-counter);
+    color: #1d1f20;
+    display: flex;
+    font: 900 1em/1 'Montserrat';
+    justify-content: center;
+    padding: 0.125em 0.25em;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/*****************************************************************************/
+ol.gl3>li::before,
+ol.gl3>li::after {
+    background: linear-gradient(135deg, #0c940c9e 0%, #ccf4cd 100%);
+    border-radius: 1rem 1rem 0 1rem;
+    content: '';
+    height: 2rem;
+    left: -1rem;
+    overflow: hidden;
+    position: absolute;
+    top: 0rem;
+    width: 2rem;
+    box-sizing: border-box;
+
+}
+
+
+ol.gl3>li::before {
+    align-items: flex-end;
+    content: counter(gradient-counter);
+    color: #1d1f20;
+    display: flex;
+    font: 900 1em/1 'Montserrat';
+    justify-content: center;
+    padding: 0.125em 0.25em;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/**************************************************************************************************************************/
+.box {
+    /***/
+    /*/**/
+    /***/
+    /*/**/
+    width: 100%;
+    /***/
+    /*/**/
+}
+
+/***/
+/*/**/
+/***************************/
+
+.rwd-table {
+    /* margin: auto auto auto -10; */
+    width: 85vw;
+    border-collapse: collapse;
+
+}
+
+
+
+.rwd-table tr.hd {
+    border-top: none;
+    background: #000000;
+    color: #fff;
+}
+
+/*.rwd-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+}*/
+
+.rwd-table tr td[data-th="Name of the Programme"] {
+    background-color: #dcdee0ab;
+}
+
+.rwd-table2 tr td[data-th="NAB Letter No. and Date"] {
+    background-color: #dcdee05d;
+}
+
+.rwd-table th {
+    display: none;
+}
+
+.rwd-table td {
+    display: block;
+}
+
+.rwd-table td:first-child {
+    margin-top: .5em;
+}
+
+.rwd-table tr:last-child {
+    margin-bottom: .5em;
+    /*color: rgb(255, 85, 0);*/
+    border: 1px solid;
+    border-color: transparent transparent
+        /*rgb(232, 145, 6)*/
+        #f5d020 transparent;
+}
+
+.rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+}
+
+.rwd-table th,
+.rwd-table td {
+    text-align: left;
+}
+
+.rwd-table {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+/*
+.rwd-table tr {
+    border: 1px solid #bfbfbf;
+}*/
+
+.rwd-table th,
+.rwd-table td {
+    padding: .5em 1em;
+}
+
+.rwd-table tr td:hover {
+    background-color: #d8e7f3b5;
+
+    /*border-top: 0.1px solid #f39326 !important;
+    border-bottom: 0.1px solid #f39326 !important;*/
+}
+
+@media screen and (max-width: 601px) {
+    .rwd-table tr:nth-child(2) {
+        border-top: none;
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+
+
+    .rwd-table td:before {
+        display: none;
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .rwd-table th:first-child,
+    .rwd-table td:first-child {
+        padding-left: 0;
+    }
+
+    .rwd-table th:last-child,
+    .rwd-table td:last-child {
+        padding-right: 0;
+    }
+
+    .rwd-table th,
+    .rwd-table td {
+        padding: 1em !important;
+    }
+
+    .rwd-table tr:nth-child(odd):not(:first-child) {
+        background-color: #dcdee0ab;
+    }
+
+    .rwd-table tr td[data-th="Name of the Programme"] {
+        background-color: white;
+    }
+}
+
+/********************/
+
+
+.rwd-table2_1 {
+    /*margin: auto auto auto -3px;*/
+    width: 97%;
+    border-collapse: collapse;
+
+}
+
+
+
+.rwd-table2_1 tr.hd {
+    border-top: none;
+    background: #000000;
+    color: #fff;
+}
+
+/*.rwd-table2_1 tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+}*/
+
+.rwd-table2_1 tr td[data-th="Name of the Course"] {
+    background-color: #dcdee0ab;
+}
+
+.rwd-table2_1 tr td[data-th="AICTE Approval No. with Date"] {
+    background-color: #dcdee05d;
+}
+
+.rwd-table2_1 th {
+    display: none;
+}
+
+.rwd-table2_1 td {
+    display: block;
+}
+
+.rwd-table2_1 tr td {
+    width: 80%;
+}
+
+.rwd-table2_1 td:first-child {
+    margin-top: .5em;
+}
+
+.rwd-table2_1 tr:last-child {
+    margin-bottom: .5em;
+    /*color: rgb(255, 85, 0);*/
+}
+
+.rwd-table2_1 tr td[data-th="S.No"] {
+    border: 1px solid;
+    border-color: #f5d020 transparent
+        /*rgb(232, 145, 6)*/
+        transparent transparent;
+
+}
+
+
+
+.rwd-table2_1 td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+}
+
+.rwd-table2_1 th,
+.rwd-table2_1 td {
+    text-align: left;
+}
+
+.rwd-table2_1 {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+/*
+.rwd-table2_1 tr {
+    border: 1px solid #bfbfbf;
+}*/
+
+.rwd-table2_1 th,
+.rwd-table2_1 td {
+    padding: .5em 1em;
+}
+
+.rwd-table2_1 tr td:hover {
+    background-color: #d8e7f33f;
+    /*
+    border-top: 0.1px solid #f39326 !important;
+    border-bottom: 0.1px solid #f39326 !important;*/
+}
+
+
+
+@media screen and (max-width: 877px) {
+    .rwd-table2_1 tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+@media screen and (min-width: 875px) {
+
+    .rwd-table2_1 {
+        width: 85vw;
+        /* margin-left: -2%; */
+    }
+
+    .rwd-table2_1 tbody {
+        border: 1px solid;
+        border-color: transparent transparent #f5d020 transparent;
+    }
+
+
+    .rwd-table2_1 td:before {
+        display: none;
+    }
+
+    .rwd-table2_1 th,
+    .rwd-table2_1 td {
+        display: table-cell;
+        padding: .25em .5em;
+        /* text-align: center; */
+    }
+
+    .rwd-table2_1 th:first-child,
+    .rwd-table2_1 td:first-child {
+        padding-left: 0;
+    }
+
+    .rwd-table2_1 th:last-child,
+    .rwd-table2_1 td:last-child {
+        padding-right: 0;
+    }
+
+    .rwd-table2_1 th,
+    .rwd-table2_1 td {
+        padding: 1em !important;
+
+    }
+
+    .rwd-table2_1 tr td[data-th="S.No"] {
+        padding: .25em .5em;
+        width: 15%;
+        border: 1px solid;
+        border-color: transparent transparent #f5d020 transparent;
+        /* background-color: red; */
+    }
+
+    .rwd-table2_1 tr td[data-th="Name of the Course"] {
+        background-color: transparent;
+        width: 55%;
+    }
+
+    .rwd-table2_1 tr td[data-th="AICTE Approval No. with Date"] {
+        background-color: white;
+        border: 1px solid;
+        border-color: transparent transparent #f5d020 transparent;
+    }
+
+    .rwd-table2_1 tr:nth-child(odd):not(:first-child) {
+        background-color: #dcdee0ab;
+    }
+
+}
+
+/********************/
+
+.rwd-table2 {
+    /*margin: auto auto auto -3px;*/
+    width: 97%;
+    border-collapse: collapse;
+
+}
+
+.rwd-table2 tr.hd {
+    border-top: none;
+    background: #000000;
+    color: #fff;
+}
+
+/*.rwd-table2 tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+}*/
+
+.rwd-table2 tr td[data-th="Name of the Course"] {
+    background-color: #dcdee0ab;
+}
+
+.rwd-table2 tr td[data-th="AICTE Approval No. with Date"] {
+    background-color: #dcdee05d;
+}
+
+.rwd-table2 th {
+    display: none;
+}
+
+.rwd-table2 td {
+    display: block;
+}
+
+.rwd-table2 td:first-child {
+    margin-top: .5em;
+}
+
+.rwd-table2 tr:last-child {
+    margin-bottom: .5em;
+    /*color: rgb(255, 85, 0);*/
+    border: 1px solid;
+    border-color: transparent transparent
+        /*rgb(232, 145, 6)*/
+        #f5d020 transparent;
+}
+
+.rwd-table2 td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+}
+
+.rwd-table2 th,
+.rwd-table2 td {
+    text-align: left;
+}
+
+.rwd-table2 {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+/*
+.rwd-table2 tr {
+    border: 1px solid #bfbfbf;
+}*/
+
+.rwd-table2 th,
+.rwd-table2 td {
+    padding: .5em 1em;
+}
+
+.rwd-table2 tr td:hover {
+    background-color: #d8e7f33f;
+    /*
+    border-top: 0.1px solid #f39326 !important;
+    border-bottom: 0.1px solid #f39326 !important;*/
+}
+
+@media screen and (max-width: 768px) {
+    .rwd-table2 tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+@media screen and (min-width: 767px) {
+
+    .rwd-table2 {
+        width: 85vw;
+        margin-left: -2%;
+    }
+
+    .rwd-table2 td:before {
+        display: none;
+    }
+
+    .rwd-table2 th,
+    .rwd-table2 td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+    .rwd-table2 th:first-child,
+    .rwd-table2 td:first-child {
+        padding-left: 0;
+    }
+
+    .rwd-table2 th:last-child,
+    .rwd-table2 td:last-child {
+        padding-right: 0;
+    }
+
+    .rwd-table2 th,
+    .rwd-table2 td {
+        padding: 1em !important;
+    }
+
+    .rwd-table2 tr td[data-th="Name of the Course"] {
+        background-color: transparent;
+    }
+
+    .rwd-table2 tr td[data-th="AICTE Approval No. with Date"] {
+        background-color: white;
+    }
+
+    .rwd-table2 tr:nth-child(odd):not(:first-child) {
+        background-color: #dcdee0ab;
+    }
+
+}
+
+/********************/
+.subTitle {
+    background-color: rgba(87, 85, 85, 0.073);
+    color: rgb(16, 124, 34);
+    /*margin-bottom: 30px;*/
+    width: 95%;
+    border-radius: 0;
+    text-align: left;
+    padding: 5px;
+    border: 2px solid;
+    border-color: transparent rgb(94, 43, 3);
+}
+
+.container {
+
+    display: block;
+    text-align: right;
+    left: 220px;
+
+}
+
+
+@-webkit-keyframes leftRight {
+    0% {
+        -webkit-transform: translateX(0)
+    }
+
+    25% {
+        -webkit-transform: translateX(-10px)
+    }
+
+    75% {
+        -webkit-transform: translateX(10px)
+    }
+
+    100% {
+        -webkit-transform: translateX(0)
+    }
+}
+
+@keyframes leftRight {
+    0% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(-10px)
+    }
+
+    75% {
+        transform: translateX(10px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+
+
+@media only screen and (min-width:60px) and (max-width: 599px) {
+
+
+    tr {
+        color: rgb(10, 10, 10);
+    }
+
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width:596px) {
+    .rwd-table {
+        width: 120%;
+    }
+
+    .rwd-table2_1 {
+        width: 120%;
+
+    }
+
+    .rwd-table2 {
+        width: 120%;
+
+    }
+}
+
+/**************************-----------TEXT------------*********************/
+
+.text {
+    position: relative;
+    padding: 8px;
+    transition: 0.2s;
+
+}
+
+.text::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background-color: #f5d020;
+    background-image: linear-gradient(315deg, #1e1b11 0%, #ecba05 0%, #d89a34 34%);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.text:hover::after {
+    width: 100%;
+    left: 0px;
+}
+
+/************************************************************************/
+/**************************-----------BUTTON------------*********************/
+.btn-11 {
+    margin-bottom: -10px;
+    padding: 4px 6px;
+    /*border: 2px solid #000;*/
+    border-radius: 6px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+/* 11 */
+.btn-11 {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-11:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+.btn-11:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+
+@-webkit-keyframes shiny-btn1 {
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    position: absolute;
+    bottom: 9px;
+    width: 96%;
+    text-align: center;
+}
